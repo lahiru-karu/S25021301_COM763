@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import lightgbm as lgb
 import mlflow.pyfunc
 
 #Input Parameters
@@ -11,7 +10,6 @@ model_id = "m-49fa9768440d4b399a5821a30f3d2d0e"
 #Page Configuration 
 st.set_page_config(
     page_title="S25021301 | COM763 | Customer Churn Prediction",
-    #layout="wide"
 )
 
 st.title(":orange[Customer Churn Prediction]")
@@ -103,7 +101,7 @@ st.markdown("---")
 if st.button("Predict Customer Churn", type="primary"):
     prediction = model.predict(df)[0]
     try:
-        prediction_class = int(round(prediction)) if isinstance(prediction, (lf, float, np.number)) else int(prediction)
+        prediction_class = int(round(prediction)) if isinstance(prediction, (int, float, np.number)) else int(prediction)
     except:
         prediction_class = int(prediction)
 
