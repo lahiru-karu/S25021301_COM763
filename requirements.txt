@@ -14,3 +14,4 @@ jupyter
 xgboost
 optuna
 lightgbm
+streamlit
